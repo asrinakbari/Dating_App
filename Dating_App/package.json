@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@angular/cli": "^13.1.2"
+    "@angular/cli": "^13.1.2",
+    "ngx-toastr": "^14.2.1"
   }
 }
