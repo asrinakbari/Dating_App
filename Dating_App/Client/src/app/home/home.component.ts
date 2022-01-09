@@ -9,7 +9,7 @@ export class HomeComponent implements OnInit {
 
   //users: any;
   registerMode = false;
-  baseUrl = 'https://localhost:44341/api/';
+  baseUrl = 'https://localhost:44301/api/';
 
 
   constructor() { }
