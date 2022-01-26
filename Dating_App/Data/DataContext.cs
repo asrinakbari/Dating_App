@@ -13,6 +13,7 @@ namespace Dating_App.Data
         {
 
         }
+
         public DbSet<AppUser> Users { get; set; }
     }
 }
