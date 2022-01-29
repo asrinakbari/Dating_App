@@ -1,0 +1,71 @@
+<div class="row" *ngIf="member">
+  <div class="col-4">
+    <h1>Your Profile</h1>
+  </div>
+  <div class="col-8" >
+    <div class="alert alert-info" *ngIf="editForm.dirty">
+      <strong>Information : </strong>You have made changes. Any unsaved changes will be lost.
+    </div>
+  </div>
+
+
+  <div class="col-4">
+    <div class="card">
+      <img src="{{member.PhotoUrl || './asset/user.png'}}" alt="{{member.KnownAs}}"
+           class="card-img-top img-thumbnail" />
+      <div class="card-body">
+
+        <div>
+          <strong>Location:</strong>
+          <p>{{member.City}} , {{member.Country}}</p>
+        </div>
+
+        <div>
+          <strong>Age:</strong>
+          <p>{{member.Age}}</p>
+        </div>
+
+        <div>
+          <strong>Last Active:</strong>
+          <p>{{member.LastActive}}</p>
+        </div>
+
+        <div>
+          <strong>Member Since:</strong>
+          <p>{{member.Created}}</p>
+        </div>
+        <div class="card-footer">
+            <button form="editForm" [disabled]="!editForm.dirty" class="btn btn-success btn-block">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-8">
+    <tabset class="member-tabset">
+
+      <tab heading='About {{member.KnownAs}}'>
+        <form #editForm="ngForm" id="editForm" (ngSubmit)="updateMember()">
+          <h4>Description</h4>
+          <textarea [(ngModel)]="member.Introduction" class="form-control" name="Introduction" rows="6"></textarea>
+          <h4 class="mt-2">Looing For</h4>
+          <textarea [(ngModel)]="member.LookingFor" class="form-control" name="LookingFor" rows="6" ></textarea>
+          <h4 class="mt-2">Interests</h4>
+          <textarea [(ngModel)]="member.Interests" class="form-control" name="Interests" rows="6"></textarea>
+          <h4 class="mt-2">Location Details: </h4>
+          <div class="form-inline">
+            <label for="city">City:</label>
+            <input type="text"  [(ngModel)]="member.City" name="city" class="form-control mx-2" />
+            <label for="Country">Country:</label>
+            <input type="text" [(ngModel)]="member.Country" name="Country" class="form-control mx-2" />
+          </div>
+        </form>
+      </tab>
+
+      <tab heading='Edit Photos'>
+        <p>Photo edit will go here</p>
+      </tab>
+
+    </tabset>
+  </div>
+</div>
