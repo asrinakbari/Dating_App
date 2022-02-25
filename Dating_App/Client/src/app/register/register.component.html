@@ -1,25 +1,26 @@
-<form #registerForm="ngForm" (submit)="register()" autocomplete="off">
+<form [formGroup]='registerForm' (submit)="register()" autocomplete="off">
+
   <h2 class="text-center text-primary">Sign up</h2>
+  <hr />
 
   <div class="form-group">
-    <input type="text" class="form-control  mt-2" name="username" autocomplete="off"
-           placeholder="username" [(ngModel)]="model.username" />
+    <input type="text" class="form-control" formControlName='username' placeholder="username" />
   </div>
 
-  <!--<div class="form-group">
-    <label>Who is your favourite user?</label>
-    <select class="form-control">
-      <option *ngFor="let user of UsersFromHomeComponent" [value]="user.UserName">{{user.UserName}}</option>
-    </select>
-  </div>-->
+  <div class="form-group">
+    <input type="password" class="form-control  mt-2" placeholder="password" formControlName='password' />
+  </div>
 
   <div class="form-group">
-    <input type="password" class="form-control  mt-2" name="password" autocomplete="off"
-           placeholder="password" [(ngModel)]="model.password" />
+    <input type="password" class="form-control  mt-2" placeholder="confirm Password" formControlName='confirmPassword' />
   </div>
 
   <div class="form-group text-center mt-2">
     <button class="btn btn-success mr-2" type="submit">Register</button>
     <button class="btn btn-default mr-2" type="button" (click)="cancel()">Cancel</button>
   </div>
+
 </form>
+
+<p>Form Value: {{registerForm.value | json}}</p>
+<p>Form State: {{registerForm.status | json}}</p>

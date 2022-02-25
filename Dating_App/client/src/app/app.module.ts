@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -6,10 +6,9 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavComponent } from './nav/nav.component'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
-import { RegisterComponent } from './register/register.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { ListsComponent } from './lists/lists.component';
@@ -24,7 +23,8 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
-
+import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -32,7 +32,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     AppComponent,
     NavComponent,
     HomeComponent,
-    RegisterComponent,
     MemberListComponent,
     MemberDetailComponent,
     ListsComponent,
@@ -41,7 +40,10 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     NotFoundComponent,
     ServerErrorComponent,
     MemberCardComponent,
-    MemberEditComponent
+    MemberEditComponent,
+    PhotoEditorComponent,
+    RegisterComponent,
+    //,ReactiveFormsModule
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -49,6 +51,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     HttpClientModule,
     NgbModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     SharedModule,
     NgxSpinnerModule
