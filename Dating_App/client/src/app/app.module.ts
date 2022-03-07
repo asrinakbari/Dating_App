@@ -25,6 +25,7 @@ import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { RegisterComponent } from './register/register.component';
+import { TextInputComponent } from './_forms/text-input/text-input.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { RegisterComponent } from './register/register.component';
     MemberEditComponent,
     PhotoEditorComponent,
     RegisterComponent,
+    TextInputComponent,
     //,ReactiveFormsModule
   ],
   imports: [
