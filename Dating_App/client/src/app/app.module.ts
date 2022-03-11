@@ -26,6 +26,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { RegisterComponent } from './register/register.component';
 import { TextInputComponent } from './_forms/text-input/text-input.component';
+import { DateInputComponent } from './_forms/date-input/date-input.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { TextInputComponent } from './_forms/text-input/text-input.component';
     PhotoEditorComponent,
     RegisterComponent,
     TextInputComponent,
+    DateInputComponent,
     //,ReactiveFormsModule
   ],
   imports: [

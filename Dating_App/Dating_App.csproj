@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Client\src\app\_models\pagination.ts" />
+    <None Remove="Client\src\app\_models\UserParams.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="CloudinaryDotNet" Version="1.16.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.13" />
@@ -26,6 +31,11 @@
 
   <ItemGroup>
     <Folder Include="Client\src\app\_forms\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="Client\src\app\_models\pagination.ts" />
+    <TypeScriptCompile Include="Client\src\app\_models\UserParams.ts" />
   </ItemGroup>
 
 </Project>
