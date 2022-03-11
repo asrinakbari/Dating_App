@@ -17,14 +17,14 @@ namespace Dating_App.Helpers
 
             if (resultContext.HttpContext.User.Identity.IsAuthenticated) return;
 
-            var username = resultContext.HttpContext.User.GetUsername();
-            if(username != null)
-            {
-                var repo = resultContext.HttpContext.RequestServices.GetService<IUserRepository>();
-                var user = await repo.GetUserByUsernameAsync(username);
-                user.LastActive = DateTime.Now;
-                await repo.SaveAllAsync();
-            }
+            //var username = resultContext.HttpContext.User.GetUsername();
+            //if (username != null)
+            //{
+            //    var repo = resultContext.HttpContext.RequestServices.GetService<IUserRepository>();
+            //    var user = await repo.GetUserByUsernameAsync(username);
+            //    user.LastActive = DateTime.Now;
+            //    await repo.SaveAllAsync();
+            //}
         }
     }
 }

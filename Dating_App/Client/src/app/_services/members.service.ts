@@ -15,6 +15,7 @@ export class MembersService {
   baseUrl = environment.apiUrl;
   members: Member[] = [];
   memberCache = new Map();
+ 
 
   constructor(private http: HttpClient) { }
 
@@ -82,5 +83,17 @@ export class MembersService {
 
   deletePhoto(photoId: number) {
     return this.http.delete(this.baseUrl + "Users/delete-photo/" + photoId)
+  }
+
+  addLike(username: string) {
+    return this.http.post(this.baseUrl + 'Likes/' + username, {})
+  }
+
+  getlikes(predicate: string, pageNumber, pageSize) {
+
+    let params = this.getPaginationHeader(pageNumber, pageSize);
+    params = params.append("predicate", predicate);
+
+    return this.getPaginatedResult<Partial<Member[]>>(this.baseUrl + 'Likes', params);
   }
 }
