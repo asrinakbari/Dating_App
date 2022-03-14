@@ -4,6 +4,7 @@ using Dating_App.DTOs;
 using Dating_App.Entities;
 using Dating_App.Helpers;
 using Dating_App.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,9 +57,35 @@ namespace Dating_App.Data
                 messageParams.PageSize);
         }
 
-        public Task<IEnumerable<MessageDto>> GetMessageThread(string currentUsername, string recipientUsername)
+        public async Task<IEnumerable<MessageDto>> GetMessageThread(string currentUsername, 
+            string recipientUsername)
         {
-            var messages = await context.Messages.Where();
+            var messages = await context.Messages
+                .Include(u => u.Sender).ThenInclude(p=>p.Photos)
+                .Include(u => u.Recipient).ThenInclude(p => p.Photos)
+                .Where(x=>x.Recipient.UserName == recipientUsername
+                    && x.Sender.UserName == currentUsername
+                    || x.Sender.UserName == recipientUsername
+                    && x.Recipient.UserName == currentUsername
+                )
+                .OrderBy(m =>m.MessageSent)
+                .ToListAsync();
+
+            var unreadMessages = messages.Where(m => m.DateRed == null
+            && m.Recipient.UserName == currentUsername).ToList();
+
+            if (unreadMessages.Any())
+            {
+                foreach (var message in unreadMessages)
+                {
+                    message.DateRed = DateTime.Now;
+                }
+
+                await context.SaveChangesAsync();
+            }
+
+            return mapper.Map<IEnumerable<MessageDto>>(messages);
+
         }
 
         public async Task<bool> SaveAllAsync()
