@@ -47,7 +47,7 @@ namespace Dating_App.Data
             query = messageParams.Container switch
             {
                 "Inbox" => query.Where(x => x.Recipient.UserName == messageParams.Username),
-                "Outbox" => query.Where(x => x.Sender.UserName == messageParams.Username),
+                "Outbox" => query.Where(x => x.Sender.UserName == messageParams.Username.ToLower()),
                 _ => query.Where(u => u.Recipient.UserName == messageParams.Username && u.DateRed == null)
             };
 
@@ -85,7 +85,6 @@ namespace Dating_App.Data
             }
 
             return mapper.Map<IEnumerable<MessageDto>>(messages);
-
         }
 
         public async Task<bool> SaveAllAsync()

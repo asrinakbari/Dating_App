@@ -11,7 +11,7 @@ import { MessageService } from '../_services/message.service';
 export class MessagesComponent implements OnInit {
   messages: Message[];
   pagination: Pagination;
-  container = "outbox";
+  container = "Outbox";
   pageNumber = 1;
   pageSize = 5;
 
@@ -32,4 +32,5 @@ export class MessagesComponent implements OnInit {
     this.pageNumber = event.page;
     this.loadMessages();
   }
+
 }
