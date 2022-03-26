@@ -15,6 +15,7 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="CloudinaryDotNet" Version="1.16.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.13">
@@ -32,6 +33,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Client\src\app\admin\" />
+    <Folder Include="Client\src\app\modals\" />
+    <Folder Include="Client\src\app\_directives\" />
     <Folder Include="Client\src\app\_forms\" />
   </ItemGroup>
 
